@@ -1,271 +1,263 @@
-/* General Reset */
-body, h1, ul {
+:root {
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --accent: #5eaaa8;
+    --text: #2f3542;
+    --light: #dcdde1;
+    --happy: #ffeaa7;
+    --motivated: #fab1a0;
+    --calm: #74b9ff;
+    --focused: #a29bfe;
+  }
+  
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* CSS Variables for Light and Dark Themes */
-:root {
-    /* Light Theme */
-    --bg-color-light: #ffedd5;
-    --bg-color-dark:  #150c19;
-    --primary-color-light: rgb(216, 239, 207);
-    --primary-color-dark: #33cc52;
-    --text-color-light: #3a3a3a;
-    --text-color-dark: #f5f5f5;
-    --link-color-light: #3a3a3a;
-    --link-color-dark: #99cc33;
-    --button-bg-light: #6a994e;
-    --button-bg-dark: #4f7942;
-    --input-border-light: #999;
-    --input-border-dark: #444;
-}
-
-/* Default Light Theme */
-body {
-    background: var(--bg-color-light);
-    color: var(--text-color-light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* Dark Theme */
-body.dark-theme {
-    background: var(--bg-color-dark);
-    color: var(--text-color-dark);
-}
-
-/* Navbar Styling */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-    padding: 10px 10px 10px 10px;
-    backdrop-filter: blur(5px);
-    z-index: 1000;
-}
-
-.navbar-container {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: var(--card);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-}
-
-/* Navbar Logo Styling */
-.navbar-logo {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
-    color: var(--primary-color-light);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-/* Dark Theme Navbar Logo */
-body.dark-theme .navbar-logo {
-    color: var(--primary-color-dark);
-}
-
-.navbar-logo {
-    text-shadow: 0 0 10px rgba(106, 153, 78, 1), 0 0 20px rgba(106, 153, 78, 1), 0 0 30px rgba(106, 153, 78, 1), 0 0 40px rgba(106, 153, 78, 1);
-}
-
-/* Navbar Links */
-.navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navbar-links li {
-    font-size: 1.2em;
-}
-
-.navbar-links a {
-    text-decoration: none;
-    color: var(--link-color-light);
-    transition: color 0.3s;
-}
-
-.navbar-links a:hover {
-    color: var(--primary-color-light);
-}
-
-/* Main Content Styling */
-.container {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 250px;
-    transition: background 0.3s, color 0.3s;
-}
-
-body.dark-theme .container {
-    background: rgba(48, 48, 48, 0.6);
-}
-
-/* Title Styling */
-.title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2em;
-    color: var(--text-color-light);
-}
-
-body.dark-theme .title {
-    color: var(--text-color-dark);
-}
-
-/* Task Input Styling */
-.todo-box {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    width: 600px;
-}
-
-#taskInput {
-    flex: 1;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid var(--input-border-light);
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-/* Dark Theme Input Field */
-body.dark-theme #taskInput {
-    border-color: var(--input-border-dark);
-}
-
-/* Add Task Button */
-#addTask {
-    background: var(--button-bg-light);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-/* Dark Theme Add Task Button */
-body.dark-theme #addTask {
-    background: var(--button-bg-dark);
-    color: white;
-}
-
-#addTask:hover {
-    background: #4f7942;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-body.dark-theme #addTask:hover{
-    background: #51c12e;
-    color: white;
-}
-
-#addTask:focus {
-    outline: none;
-}
-
-/* Task List Styling */
-ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-ul li {
-    background: rgba(255, 255, 255, 0.8);
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s ease-in-out;
-}
-
-/* Dark Theme Task List Items */
-body.dark-theme ul li {
-    background: rgba(144, 137, 137, 0.9); /* Darker background */
-}
-
-ul li:hover {
-    transform: scale(1.05);
-}
-
-/* Completed Task Styling */
-.completed {
-    color: gray;
-    opacity: 0.7;
-    cursor: pointer;
-}
-
-/* Dark Theme Completed Task Styling */
-body.dark-theme .completed {
-    color: #666;
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-/* Checkbox Styling */
-.taskCheckbox {
-    margin-left: 10px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.taskCheckbox:checked + span {
-    color: green;
-    font-weight: bold;
-}
-
-/* Theme Toggle Button Styling */
-.theme-toggle {
+    padding: 0.75rem 1.25rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-left {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .nav-center {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #888;
+  }
+  
+  .nav-right button {
     background: none;
     border: none;
-    color: var(--primary-color-light);
-    font-size: 1.5em;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: color 0.3s;
-}
-
-/* Dark Theme Toggle Button */
-body.dark-theme .theme-toggle {
-    color: var(--primary-color-dark);
-}
-
-.quote {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #4f7942;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 700px;
+    margin: auto;
+    padding: 1rem;
+    background: var(--card);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  /* Top section with progress ring */
+  .top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+  
+  .progress-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+  
+  /* Inputs */
+  .input-section {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  #task-input, select, button {
+    padding: 0.75rem;
+    border: 1px solid var(--light);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  #task-input {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  #add-btn {
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #add-btn:hover {
+    background: #4b9492;
+  }
+  
+  /* Mood Filter */
+  .filter-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    background: var(--light);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .filter-btn:hover {
+    background: var(--accent);
+    color: white;
+  }
+  
+  /* Task List */
+  .task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .task {
+    background: var(--bg);
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.4s ease forwards;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  
+  .task span {
+    flex: 1;
+    font-size: 1rem;
+  }
+  
+  .task.done span {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  
+  .task .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .task button {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  /* Progress Ring */
+  .circular-chart {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dasharray 0.5s ease;
+  }
+  
+  .percentage {
+    fill: var(--text);
+    font-size: 0.5em;
+    text-anchor: middle;
+  }
+  
+  /* Footer */
+  footer {
     text-align: center;
-    margin-bottom: 10px;
-}
-
-/* Ghibli-Themed Date & Time Styling */
-.ghibli-time {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #4f7942;
-    font-family: 'Dancing Script', cursive;
-    margin-right: 20px;
-}
-
-/* Dark Theme Date & Time */
-body.dark-theme .ghibli-time {
-    color: #99cc33;
-}
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  @keyframes slideIn {
+    from {transform: translateY(20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+  
+  /* Dark mode */
+  body.dark {
+    --bg: #1e272e;
+    --card: #2f3640;
+    --accent: #00cec9;
+    --text: #dfe6e9;
+    --light: #57606f;
+  }
+  
+  body.dark .circle {
+    stroke: #00cec9;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .top-section {
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+  
+    .input-section {
+      flex-direction: column;
+    }
+  
+    .navbar {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  
+    .nav-left, .nav-center, .nav-right {
+      width: 100%;
+    }
+  }
+  
+  
