@@ -1,0 +1,333 @@
+:root {
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --accent: #5eaaa8;
+    --text: #2f3542;
+    --light: #dcdde1;
+    --happy: #ffeaa7;
+    --motivated: #fab1a0;
+    --calm: #74b9ff;
+    --focused: #a29bfe;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: var(--card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-left {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .nav-center {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #888;
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .nav-right button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .nav-right a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+  
+  /* Container */
+  .container {
+    max-width: 700px;
+    margin: auto;
+    padding: 1rem;
+    background: var(--card);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  /* Header Section */
+  .top-section h1 {
+    font-size: 1.6rem;
+    color: var(--accent);
+  }
+  
+  /* Input Section */
+  .input-section {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  #habit-input {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.75rem;
+    border: 1px solid var(--light);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  #add-habit-btn {
+    padding: 0.75rem 1.2rem;
+    background: var(--accent);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #add-habit-btn:hover {
+    background: #4b9492;
+  }
+  
+  /* Habit Table */
+  #habit-table-section {
+    overflow-x: auto;
+  }
+  
+  #habit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+  }
+  
+  #habit-table th,
+  #habit-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border-bottom: 1px solid var(--light);
+  }
+  
+  #habit-table th {
+    background-color: var(--light);
+    color: var(--text);
+  }
+  
+  #habit-table td {
+    background-color: var(--bg);
+  }
+  
+  /* Toggle Button Styling */
+  .toggle-btn {
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  
+  /* Dark Mode */
+  body.dark {
+    --bg: #1e272e;
+    --card: #2f3640;
+    --accent: #00cec9;
+    --text: #dfe6e9;
+    --light: #57606f;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+  
+    .nav-left,
+    .nav-center,
+    .nav-right {
+      width: 100%;
+    }
+  
+    .input-section {
+      flex-direction: column;
+    }
+  }
+
+  .edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0 2px;
+    transition: color 0.2s ease;
+  }
+  
+  .edit-btn:hover {
+    color: var(--accent);
+  }
+  
+  .delete-btn:hover {
+    color: red;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.hidden {
+    display: none;
+    opacity: 0;
+  }
+  
+  .modal-content {
+    background: var(--card);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 350px;
+    width: 90%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content p {
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .modal-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #confirm-delete {
+    background: red;
+    color: white;
+  }
+  
+  #cancel-delete {
+    background: var(--light);
+    color: var(--text);
+  }
+  
+  #edit-habit-input {
+    padding: 0.6rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light);
+    font-size: 1rem;
+  }
+    
+  
+  #save-edit {
+    background: var(--accent);
+    color: white;
+  }
+  
+  #cancel-edit {
+    background: var(--light);
+    color: var(--text);
+  }
+
+ #save-edit:hover{
+    opacity: 0.8;
+    background-color: #4b9492;
+    color: black;
+  }
+
+  #cancel-edit:hover{
+    opacity: 0.8;
+    background-color: #57606f;
+  }
+
+  /* Progress bar */
+.progress-container {
+    width: 100%;
+    background: var(--light);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 5px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: var(--accent);
+    width: 0;
+    transition: width 0.3s ease;
+  }
+  
+  /* Category Tags */
+  .category-tag {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: var(--focused);
+    color: white;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  
+  /* Weekly Stats Section */
+  .weekly-stats-section {
+    text-align: center;
+  }
+  
+  #view-stats-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #view-stats-btn:hover {
+    background: #4b9492;
+  }
+
+  

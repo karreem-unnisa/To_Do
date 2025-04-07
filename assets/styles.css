@@ -260,4 +260,19 @@
     }
   }
   
+  .nav-link {
+    text-decoration: none;
+    color: var(--text);
+    background: var(--light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
   
