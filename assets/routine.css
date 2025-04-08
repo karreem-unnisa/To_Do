@@ -1,0 +1,222 @@
+:root {
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --accent: #5eaaa8;
+    --text: #2f3542;
+    --light: #dcdde1;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: var(--card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-left {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .nav-center {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #888;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: var(--text);
+    background: var(--light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  
+  .nav-right button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    background: var(--card);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .routine-input {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .routine-input input,
+  .routine-input select,
+  .routine-input button {
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light);
+    font-size: 0.9rem;
+  }
+  
+  .routine-input button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .routine-input button:hover {
+    background: #4b9492;
+  }
+  
+  #routine-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .routine-task {
+    background: var(--card);
+    border: 1px solid var(--light);
+    padding: 0.8rem;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-left: 5px solid var(--accent);
+  }
+  
+  .routine-task span {
+    font-size: 0.9rem;
+  }
+  
+  .routine-task .actions {
+    display: flex;
+    gap: 0.4rem;
+  }
+  
+  .routine-task .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+  
+  .routine-task .actions button:hover {
+    color: var(--accent);
+  }
+  
+  /* Task Type Colors */
+  .routine-task.study { border-left-color: #6c5ce7; }
+  .routine-task.break { border-left-color: #00b894; }
+  .routine-task.gym { border-left-color: #e17055; }
+  .routine-task.other { border-left-color: #0984e3; }
+  
+ 
+  
+  .task-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0.25rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+    color: white;
+    background: var(--accent);
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .routine-input {
+      flex-direction: column;
+    }
+  }
+  
+  /* Dark Theme */
+  body.dark {
+    --bg: #1e272e;
+    --card: #2f3640;
+    --accent: #00cec9;
+    --text: #dfe6e9;
+    --light: #57606f;
+  }
+
+  /* Flex Layout for Routine Planner */
+.routine-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .routine-left {
+    flex: 1 1 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .routine-right {
+    flex: 1 1 300px;
+  }
+  
+  #timeline-view {
+    height: 600px;
+    border: 1px dashed var(--light);
+    border-radius: 0.75rem;
+    background: #c3c9e0;
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .routine-content {
+      flex-direction: column;
+    }
+  
+    .routine-right,
+    .routine-left {
+      flex: 1 1 100%;
+    }
+  }
+  

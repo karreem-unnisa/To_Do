@@ -136,7 +136,7 @@ function toggleCheckbox(e) {
       // Calculate new streak
       const tracked = habits[id].tracking;
       let streak = 0;
-      for (let i = tracked.length - 1; i >= 0; i--) {
+      for (let i = 0; i <=tracked.length - 1; i++) {
         if (tracked[i]) streak++;
         else break;
       }

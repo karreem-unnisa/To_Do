@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MindfulTasks - Diary</title>
+  <title>📔FlowForage - Diary</title>
   <link rel="stylesheet" href="assets/diary.css" />
+  <link rel="icon" type="image/jpeg" href="assets/habit_tracker_bullet.jpg">
 </head>
 <body>
-    <header class="navbar">
-        <div class="nav-left">🧠 MindfulTasks</div>
-        <div class="nav-center" id="datetime">--:--</div>
-        <div class="nav-right">
-          <a href="habit.html" class="nav-link">🧩</a>
-          <a href="index.html" class="nav-link">📋</a>
-          <button id="theme-toggle">🌙</button>
-        </div>
-      </header>
-      
-    
+  <header class="navbar">
+    <div class="nav-left">📔 FlowForage - Diary</div>
+    <div class="nav-center" id="datetime">--:--</div>
+    <div class="nav-right">
+      <a href="habit.html" class="nav-link">🧩</a>
+      <a href="index.html" class="nav-link">📋</a>
+      <a href="routine.html" class="nav-link">📅</a>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
 
   <main class="container">
     <h2>📝 Write a Diary Entry</h2>
@@ -36,6 +36,15 @@
 
     <h3>📔 Your Entries</h3>
     <div id="entries-list"></div>
+
+    <!-- Modal -->
+    <div id="entry-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modal-mood" class="modal-mood"></div>
+        <p id="modal-text"></p>
+      </div>
+    </div>
   </main>
 
   <script src="js/diary.js"></script>

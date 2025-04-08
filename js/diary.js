@@ -14,13 +14,20 @@ function renderEntries() {
     const div = document.createElement("div");
     div.className = "entry";
     div.innerHTML = `
-      <div><span class="mood">${entry.mood || ""}</span>${entry.text}</div>
-      <small>${entry.date}</small>
+      <div class="entry-snippet">${entry.text}</div>
+      <small>${entry.date} ${entry.mood ? "- Mood: " + entry.mood : ""}</small>
       <div class="actions">
-        <button onclick="editEntry(${i})">✏️</button>
-        <button onclick="deleteEntry(${i})">🗑️</button>
+        <button onclick="event.stopPropagation(); editEntry(${i})">✏️</button>
+        <button onclick="event.stopPropagation(); deleteEntry(${i})">🗑️</button>
       </div>
     `;
+
+    div.addEventListener("click", () => {
+      document.getElementById("modal-text").textContent = entry.text;
+      document.getElementById("modal-mood").textContent = entry.mood;
+      document.getElementById("entry-modal").style.display = "block";
+    });
+
     entriesList.appendChild(div);
   });
 }
@@ -28,7 +35,6 @@ function renderEntries() {
 function saveEntry() {
   const text = diaryText.value.trim();
   const mood = moodSelect.value;
-
   if (!text) return;
 
   const now = new Date();
@@ -65,7 +71,6 @@ function editEntry(index) {
 
 saveBtn.addEventListener("click", saveEntry);
 
-// Update clock
 setInterval(() => {
   const now = new Date();
   datetime.textContent =
@@ -74,7 +79,6 @@ setInterval(() => {
     now.toLocaleDateString();
 }, 1000);
 
-// Theme toggle
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
 }
@@ -84,6 +88,15 @@ themeToggle.addEventListener("click", () => {
     "theme",
     document.body.classList.contains("dark") ? "dark" : "light"
   );
+});
+
+document.querySelector(".close-btn").addEventListener("click", () => {
+  document.getElementById("entry-modal").style.display = "none";
+});
+window.addEventListener("click", (e) => {
+  if (e.target.id === "entry-modal") {
+    document.getElementById("entry-modal").style.display = "none";
+  }
 });
 
 renderEntries();

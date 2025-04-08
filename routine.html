@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📔FlowForage - Routine Planner</title>
+  <link rel="stylesheet" href="assets/routine.css" />
+  <link rel="icon" type="image/jpeg" href="assets/habit_tracker_bullet.jpg">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">📔 FlowForage - Routine Planner</div>
+    <div class="nav-center" id="datetime">--:--</div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">📋</a>
+      <a href="habit.html" class="nav-link">🧩</a>
+      <a href="diary.html" class="nav-link">📝</a>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>📅 Routine Planner</h2>
+  
+    <div class="routine-content">
+      <!-- Left Column -->
+      <div class="routine-left">
+        <div class="routine-input">
+          <input type="time" id="start-time" />
+          <input type="time" id="end-time" />
+          <input type="text" id="task-desc" placeholder="Task description" />
+          <select id="task-type">
+            <option value="study">📖 Study</option>
+            <option value="break">☕ Break</option>
+            <option value="gym">🏋️ Gym</option>
+            <option value="other">🛠️ Other</option>
+          </select>
+          <button id="add-task">➕ Add Task</button>
+        </div>
+  
+        <div id="routine-list"></div>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="routine-right">
+        <div id="timeline-view"></div>
+      </div>
+    </div>
+  </main>
+  
+
+  <script src="js/routine.js"></script>
+</body>
+</html>
