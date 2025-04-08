@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindfulTasks - Diary</title>
+  <link rel="stylesheet" href="assets/diary.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-left">🧠 MindfulTasks</div>
+        <div class="nav-center" id="datetime">--:--</div>
+        <div class="nav-right">
+          <a href="habit.html" class="nav-link">🧩</a>
+          <a href="index.html" class="nav-link">📋</a>
+          <button id="theme-toggle">🌙</button>
+        </div>
+      </header>
+      
+    
+
+  <main class="container">
+    <h2>📝 Write a Diary Entry</h2>
+    <div class="entry-input">
+      <textarea id="diary-text" placeholder="What's on your mind?" rows="5"></textarea>
+      <select id="mood-select">
+        <option value="">Select Mood</option>
+        <option value="😄">Happy</option>
+        <option value="😐">Neutral</option>
+        <option value="😢">Sad</option>
+        <option value="😤">Stressed</option>
+        <option value="🤩">Excited</option>
+      </select>
+      <button id="save-entry">Save Entry</button>
+    </div>
+
+    <h3>📔 Your Entries</h3>
+    <div id="entries-list"></div>
+  </main>
+
+  <script src="js/diary.js"></script>
+</body>
+</html>
